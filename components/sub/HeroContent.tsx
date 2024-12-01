@@ -1,13 +1,8 @@
-
 "use client";
 
 import React from "react";
 import { motion } from "framer-motion";
-import {
-  slideInFromLeft,
-  slideInFromRight,
-  slideInFromTop,
-} from "@/utils/motion";
+import { slideInFromLeft, slideInFromRight, slideInFromTop } from "@/utils/motion";
 import { SparklesIcon } from "@heroicons/react/24/solid";
 import Image from "next/image";
 
@@ -31,15 +26,11 @@ const HeroContent = () => {
 
         <motion.div
           variants={slideInFromLeft(0.5)}
-          className="flex flex-col gap-6 mt-6 text-6xl font-bold text-white max-w-[600px] w-auto h-auto"
+          className="flex flex-col gap-4 mt-6 text-6xl font-bold text-white max-w-[600px] w-auto h-auto"
         >
-          <span>
-            Providing
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
-              {" "}
-              the best{" "}
-            </span>
-            project exprience
+          <span className="block">Hello! I am</span>
+          <span className="block text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
+            Sanduni Navodya
           </span>
         </motion.div>
 
@@ -47,16 +38,20 @@ const HeroContent = () => {
           variants={slideInFromLeft(0.8)}
           className="text-lg text-gray-400 my-5 max-w-[600px] text-justify"
         >
-          I&apos;m  a Data Science undergraduate with a strong foundation in machine learning, 
-          statistical analysis, and data visualization. I have experience working with real-world datasets 
-          to derive insights and build predictive models. Explore my projects and skills in data analysis, 
+          I&apos;m a Data Science undergraduate with a strong foundation in machine learning,
+          statistical analysis, and data visualization. I have experience working with real-world datasets
+          to derive insights and build predictive models. Explore my projects and skills in data analysis,
           machine learning, and data-driven decision-making.
         </motion.p>
+
+        {/* Use a simple download link */}
         <motion.a
           variants={slideInFromLeft(1)}
+          href="/Sanduni Navodya Resume.pdf" // Path to the PDF in the 'public' folder
+          download="Sanduni Navodya Resume.pdf" // This will trigger a download
           className="py-2 button-primary text-center text-white cursor-pointer rounded-lg max-w-[200px]"
         >
-          Learn More!
+          Download CV
         </motion.a>
       </div>
 
@@ -64,12 +59,7 @@ const HeroContent = () => {
         variants={slideInFromRight(0.8)}
         className="w-full h-full flex justify-center items-center"
       >
-        <Image
-          src="/mainIconsdark.svg"
-          alt="work icons"
-          height={650}
-          width={650}
-        />
+        <Image src="/mainIconsdark.svg" alt="work icons" height={650} width={650} />
       </motion.div>
     </motion.div>
   );

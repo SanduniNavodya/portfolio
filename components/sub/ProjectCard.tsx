@@ -1,4 +1,3 @@
-
 import Image from "next/image";
 import React from "react";
 
@@ -10,14 +9,16 @@ interface Props {
 
 const ProjectCard = ({ src, title, description }: Props) => {
   return (
-    <div className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61]">
-      <Image
-        src={src}
-        alt={title}
-        width={1000}
-        height={1000}
-        className="w-full object-contain"
-      />
+    <div className="relative overflow-hidden rounded-lg shadow-lg border border-[#2A0E61] transition-all duration-300 hover:shadow-xl hover:scale-105 hover:opacity-90">
+      <div className="relative w-full h-64">
+        <Image
+          src={src}
+          alt={title}
+          layout="fill"  // Makes the image fill the parent div
+          objectFit="cover"  // Ensures the image covers the entire area
+          className="w-full h-full object-cover"
+        />
+      </div>
 
       <div className="relative p-4">
         <h1 className="text-2xl font-semibold text-white">{title}</h1>
