@@ -28,115 +28,125 @@ const Socials = [
 
 const Footer = () => {
   return (
-    <div className="w-full h-full bg-transparent text-gray-200 shadow-lg p-[15px]">
-      <div className="w-full flex flex-col items-center justify-center m-auto">
-        <div className="w-full h-full flex flex-row items-center justify-around flex-wrap">
-          {/* Profile Image Section */}
-          <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">
-            <div className="w-[200px] h-[200px] rounded-full overflow-hidden border-8 border-transparent bg-clip-border bg-gradient-to-r from-purple-500 to-cyan-500">
+    <footer className="bg-gradient-to-r from-gray-900 via-black to-gray-900 text-gray-200 py-10">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
+          {/* Profile Section */}
+          <div className="flex flex-col items-center">
+            <div className="relative w-40 h-40 rounded-full overflow-hidden border-8 border-gradient-to-r from-purple-500 to-cyan-500">
               <Image
                 src="/Sanduni.jpeg"
                 alt="Sanduni Navodya"
-                width={200}
-                height={200}
+                width={160}
+                height={160}
                 className="object-cover"
               />
             </div>
+            <h2 className="mt-4 font-semibold text-lg">Sanduni Navodya</h2>
           </div>
 
           {/* Education Section */}
-          <div className="min-w-[400px] h-auto flex flex-col items-start space-y-4">
-            <h2 className="font-bold text-[18px] mb-4">Education</h2>
-            <div className="space-y-4">
-              <div className="flex items-center space-x-4">
+          <div>
+            <h3 className="font-bold text-lg text-white mb-4">Education</h3>
+            <ul className="space-y-4">
+              <li className="flex items-center">
                 <Image
                   src="/school.png"
                   alt="H/Theraputtal National School"
                   width={40}
                   height={40}
-                  className="object-cover"
+                  className="mr-4"
                 />
                 <div>
                   <p className="font-semibold text-white">H/Theraputtal National School</p>
                   <p className="text-gray-400 text-sm">2012 - 2021</p>
                 </div>
-              </div>
-              <div className="flex items-center space-x-4">
+              </li>
+              <li className="flex items-center">
                 <Image
                   src="/diploma.png"
                   alt="ICBT Southern Campus"
                   width={40}
                   height={40}
-                  className="rounded-full"
+                  className="mr-4"
                 />
                 <div>
                   <p className="font-semibold text-white">ICBT Southern Campus</p>
                   <p className="text-gray-400 text-sm">2022</p>
                 </div>
-              </div>
-              <div className="flex items-center space-x-4">
+              </li>
+              <li className="flex items-center">
                 <Image
                   src="/uni.png"
-                  alt="Sri Lanka Institute of Information Technology (SLIIT)"
+                  alt="SLIIT"
                   width={40}
                   height={40}
-                  className="rounded-full"
+                  className="mr-4"
                 />
                 <div>
-                  <p className="font-semibold text-white">
-                    Sri Lanka Institute of Information Technology (SLIIT)
-                  </p>
+                  <p className="font-semibold text-white">SLIIT</p>
                   <p className="text-gray-400 text-sm">2022 - Current</p>
                 </div>
-              </div>
-            </div>
+              </li>
+            </ul>
           </div>
 
           {/* Social Media Section */}
-          <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">
-            <div className="font-bold text-[16px]">Social Media</div>
-            {Socials.map((social) => (
-              <Link
-                key={social.name}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                <p className="flex flex-row items-center my-[15px] cursor-pointer">
-                  <Image
-                    src={social.src}
-                    alt={social.name}
-                    width={24}
-                    height={24}
-                    className="cursor-pointer"
-                  />
-                  <span className="text-[15px] ml-[6px]">{social.name}</span>
-                </p>
-              </Link>
-            ))}
+          <div>
+            <h3 className="font-bold text-lg text-white mb-4">Social Media</h3>
+            <ul className="space-y-4">
+              {Socials.map((social) => (
+                <li key={social.name}>
+                  <Link href={social.url} target="_blank" rel="noopener noreferrer">
+                    <div className="flex items-center space-x-3 group">
+                      <Image
+                        src={social.src}
+                        alt={social.name}
+                        width={24}
+                        height={24}
+                        className="group-hover:scale-110 transition-transform"
+                      />
+                      <span className="text-gray-300 group-hover:text-purple-500">
+                        {social.name}
+                      </span>
+                    </div>
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* About Section */}
-          <div className="min-w-[200px] h-auto flex flex-col items-center justify-start">
-            <div className="font-bold text-[16px]">About</div>
-            <p className="flex flex-row items-center my-[15px] cursor-pointer">
-              <span className="text-[15px] ml-[6px]">Hiring me</span>
-            </p>
-            <p className="flex flex-row items-center my-[15px] cursor-pointer">
-              <span className="text-[15px] ml-[6px]">Learning about me</span>
-            </p>
-            <p className="flex flex-row items-center my-[15px] cursor-pointer">
-              <span className="text-[15px] ml-[6px]">sanduninavodya01@gmail.com</span>
-            </p>
+          {/* Contact Section */}
+          <div>
+            <h3 className="font-bold text-lg text-white mb-4">Contact</h3>
+            <ul className="space-y-4">
+              <li>
+                <Link href="mailto:sanduninavodya01@gmail.com">
+                  <p className="text-gray-300 hover:text-purple-500">
+                  Hire Me
+                  </p>
+                </Link>
+              </li>
+              <li>
+                <Link href="/#contact">
+                  <p className="text-gray-300 hover:text-purple-500">Learn About Me</p>
+                </Link>
+              </li>
+              <li>
+                <Link href="/#about">
+                  <p className="text-gray-300 hover:text-purple-500">Share Your Ideas With Me</p>
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
 
         {/* Footer Copyright */}
-        <div className="mb-[20px] text-[15px] text-center">
-          &copy; All rights reserved
+        <div className="mt-10 text-center text-gray-500">
+          &copy; {new Date().getFullYear()} Sanduni Navodya. All rights reserved.
         </div>
       </div>
-    </div>
+    </footer>
   );
 };
 

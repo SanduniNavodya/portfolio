@@ -1,59 +1,96 @@
-import React from "react";
-import ProjectCard from "../sub/ProjectCard";
 
-const Projects = () => {
+import {
+  Backend_skill,
+  Frontend_skill,
+  Full_stack,
+  Other_skill,
+  Skill_data,
+} from "@/constants";
+import React from "react";
+import SkillDataProvider from "../sub/SkillDataProvider";
+import SkillText from "../sub/SkillText";
+
+const Skills = () => {
   return (
-    <div
-      className="flex flex-col items-center justify-center py-10 mt-[-300px]"
-      id="projects"
+    <section
+      id="skills"
+      className="flex flex-col items-center justify-center gap-3 h-full relative overflow-hidden pb-80 py-20 mb-0"
+      style={{ transform: "scale(0.9" }}
     >
-      <h1 className="text-[40px] font-semibold text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 py-20">
-        My Projects
-      </h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 px-10">
-        <ProjectCard
-          src="/house.jpg"
-          title="House Price Prediction System"
-          description="A system for predicting house prices based on real-world datasets."
-        />
-        <ProjectCard
-          src="/phone.jpg"
-          title="Mobile Recommendation System"
-          description="A personalized recommendation system for mobile phones."
-        />
-        <ProjectCard
-          src="/summary.jpg"
-          title="Text Summarization & Analysis System"
-          description="A tool for summarizing and analyzing textual content."
-        />
-        <ProjectCard
-          src="/email.jpg"
-          title="GenAI Cold Email Generator"
-          description="Generate cold emails using generative AI models."
-        />
-        <ProjectCard
-          src="/vehicle.jpg"
-          title="Vehicle Service Management System"
-          description="A platform to manage vehicle services and maintenance."
-        />
-        <ProjectCard
-          src="/currency.jpg"
-          title="Currency Converter App"
-          description="An app for converting currencies with live rates."
-        />
-        <ProjectCard
-          src="/event.jpg"
-          title="Online Event Planning System"
-          description="Plan and manage events with an online platform."
-        />
-        <ProjectCard
-          src="/land.jpg"
-          title="Online Land Sale System"
-          description="A system for buying and selling land properties online."
-        />
+      <SkillText />
+
+      <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
+        {Skill_data.map((image, index) => (
+          <SkillDataProvider
+            key={index}
+            src={image.Image}
+            width={image.width}
+            height={image.height}
+            index={index}
+          />
+        ))}
       </div>
-    </div>
+
+      <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
+        {Frontend_skill.map((image, index) => (
+          <SkillDataProvider
+            key={index}
+            src={image.Image}
+            width={image.width}
+            height={image.height}
+            index={index}
+          />
+        ))}
+      </div>
+      <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
+        {Backend_skill.map((image, index) => (
+          <SkillDataProvider
+            key={index}
+            src={image.Image}
+            width={image.width}
+            height={image.height}
+            index={index}
+          />
+        ))}
+      </div>
+      <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
+        {Full_stack.map((image, index) => (
+          <SkillDataProvider
+            key={index}
+            src={image.Image}
+            width={image.width}
+            height={image.height}
+            index={index}
+          />
+        ))}
+      </div>
+      <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center">
+        {Other_skill.map((image, index) => (
+          <SkillDataProvider
+            key={index}
+            src={image.Image}
+            width={image.width}
+            height={image.height}
+            index={index}
+          />
+        ))}
+      </div>
+
+      <div className="w-full h-full absolute">
+        <div className="w-full h-full z-[-10] opacity-30 absolute flex items-center justify-center bg-cover">
+          <video
+            className="w-full h-auto"
+            preload="false"
+            playsInline
+            loop
+            muted
+            autoPlay
+            src="/cards-video.webm"
+          />
+        </div>
+      </div>
+    </section>
   );
 };
 
-export default Projects;
+export default Skills;
